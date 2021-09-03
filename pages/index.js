@@ -3,21 +3,47 @@ import React, { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
 
-const Home = (data) => {
+const Quotes = (data) => {
   return (
     <>
       <Head>
         <title>{data.meta.title}</title>
+        <meta charSet='utf-8' />
+        <meta name='viewport' content='initial-scale=1.0, width=device-width' />
+        <meta name='apple-mobile-web-app-capable' content='yes' />
         <meta name='description' content={data.meta.desc} />
+        <meta name='author' content='Shubham Ratrey' />
+        <meta name='viewport' content='width=device-width, initial-scale=1' />
+        <meta http-equiv='X-UA-Compatible' content='IE=Edge,chrome=1' />
+
+        <meta property='og:title' content={data.meta.title} />
+        <meta property='og:description' content={data.meta.desc} />
+        <meta property='og:url' content='https://quotes.ratrey.co' />
+        <meta property='og:type' content='website' />
+        <meta
+          property='og:site_name'
+          property='og:site_name'
+          content='quotes.ratrey.co'
+        />
+
+        <meta name='twitter:card' content='summary' />
+        <meta name='twitter:site' content='@shubhamratrey' />
+        <meta name='twitter:creator' content='@shubhamratrey' />
+        <meta name='twitter:title' content={data.meta.title} />
+        <meta name='twitter:description' content={data.meta.desc} />
       </Head>
-      <section className='text-gray-400 bg-gray-900 body-font'>
-        <div className='container px-5 py-24 mx-auto'>
-          <h1 className='text-3xl font-medium title-font text-white mb-12 text-center'>
-            Shayari
-          </h1>
-          <div className='flex flex-wrap -m-4'></div>
+
+      <body
+        style={{
+          backgroundImage: `url('${data.image}')`,
+        }}
+      >
+        <div className='flex justify-center items-center h-screen'>
+          <div className='text-white text-center'>
+            <h1 className='text-6xl font-bold p-32'>{data.quote}</h1>
+          </div>
         </div>
-      </section>
+      </body>
     </>
   );
 };
@@ -25,7 +51,7 @@ const Home = (data) => {
 export const getServerSideProps = async () => {
   try {
     const { data } = await axios.get(
-      `https://api.ratrey.co/v1/good-reads/quote/`
+      `https://quotes.ratrey.co/v1/good-reads/quote/`
     );
     return { props: data };
   } catch (e) {
@@ -37,4 +63,4 @@ export const getServerSideProps = async () => {
   }
 };
 
-export default Home;
+export default Quotes;
