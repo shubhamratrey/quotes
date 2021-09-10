@@ -1,12 +1,12 @@
 import Head from 'next/head'
-import React, { useState, useEffect, useRef } from "react";
-import { useRouter } from "next/router";
+import React from "react";
 import axios from "axios";
 
 const Quotes = (data) => {
   return (
     <>
       <Head>
+        <html lang='en-US' />
         <title>{data.meta.title}</title>
         <meta charSet='utf-8' />
         <meta name='viewport' content='initial-scale=1.0, width=device-width' />
@@ -40,7 +40,9 @@ const Quotes = (data) => {
       >
         <div className='flex justify-center items-center h-screen'>
           <div className='text-white text-center'>
-            <h1 className='text-6xl font-bold p-32'>{data.quote}</h1>
+            <h1 className='text-3xl md:text-6xl  font-bold p-4 md:p-32'>
+              {data.quote}
+            </h1>
           </div>
         </div>
       </body>
