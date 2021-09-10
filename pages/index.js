@@ -40,7 +40,7 @@ const Quotes = (data) => {
       >
         <div className='flex justify-center items-center h-screen'>
           <div className='text-white text-center'>
-            <h1 className='whitespace-pre-wrap text-xl md:text-6xl  font-bold p-4 md:p-32'>
+            <h1 className='whitespace-pre-wrap text-xl md:text-4xl  font-bold p-4 md:p-52'>
               {data.quote}
             </h1>
           </div>
