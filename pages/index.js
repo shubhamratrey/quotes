@@ -6,7 +6,6 @@ const Quotes = (data) => {
   return (
     <>
       <Head>
-        <html lang='en-US' />
         <title>{data.meta.title}</title>
         <meta charSet='utf-8' />
         <meta name='viewport' content='initial-scale=1.0, width=device-width' />
@@ -33,19 +32,17 @@ const Quotes = (data) => {
         <meta name='twitter:description' content={data.meta.desc} />
       </Head>
 
-      <body
-        style={{
-          backgroundImage: `url('${data.image}')`,
-        }}
-      >
-        <div className='flex justify-center items-center h-screen'>
-          <div className='text-white text-center'>
-            <h1 className='whitespace-pre-wrap text-xl md:text-4xl  font-bold p-4 md:p-52'>
-              {data.quote}
-            </h1>
-          </div>
+      <div className='flex justify-center items-center h-screen relative'>
+        <img
+          src={data.image}
+          className='w-full h-full absolute filter brightness-50 object-cover'
+        />
+        <div className='relative text-white text-center'>
+          <h1 className='whitespace-pre-wrap text-xl md:text-4xl  font-bold p-4 md:p-52 select-none'>
+            {data.quote}
+          </h1>
         </div>
-      </body>
+      </div>
     </>
   );
 };
