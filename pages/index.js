@@ -17,7 +17,7 @@ const Quotes = (data) => {
 
         <meta property='og:title' content={data.meta.title} />
         <meta property='og:description' content={data.meta.desc} />
-        <meta property='og:url' content='https://quotes.ratrey.co' />
+        <meta property='og:url' content='https://app.ratrey.co/quotes' />
         <meta property='og:type' content='website' />
         <meta
           property='og:site_name'
